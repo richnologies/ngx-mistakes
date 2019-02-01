@@ -9,7 +9,7 @@
 </h1>
 
 <h4 align="center">
-  A declarative validation errors module for reactive forms based on module the by
+  A declarative validation errors module for reactive forms based on the module by
   <a href="https://github.com/UltimateAngular/ngx-errors" target="_blank">Ultimate Angular</a>
 </h4>
 

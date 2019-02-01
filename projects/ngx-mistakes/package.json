@@ -1,6 +1,10 @@
 {
   "name": "ngx-mistakes",
-  "version": "7.0.0",
+  "version": "7.0.1",
+  "description": "A declarative validation errors module for reactive forms",
+  "keywords": ["angular", "forms", "reactive"],
+  "author": "Ricardo Sanchez Gregorio <me@richnologies.io>",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0",
