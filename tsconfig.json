@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-mistakes": [
+        "dist/ngx-mistakes"
+      ],
+      "ngx-mistakes/*": [
+        "dist/ngx-mistakes/*"
+      ]
+    }
   }
 }

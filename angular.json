@@ -2,5 +2,170 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ngx-mistakes": {
+      "root": "projects/ngx-mistakes",
+      "sourceRoot": "projects/ngx-mistakes/src",
+      "projectType": "library",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-mistakes/tsconfig.lib.json",
+            "project": "projects/ngx-mistakes/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-mistakes/src/test.ts",
+            "tsConfig": "projects/ngx-mistakes/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-mistakes/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-mistakes/tsconfig.lib.json",
+              "projects/ngx-mistakes/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-mistakes-tester": {
+      "root": "projects/ngx-mistakes-tester/",
+      "sourceRoot": "projects/ngx-mistakes-tester/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-mistakes-tester",
+            "index": "projects/ngx-mistakes-tester/src/index.html",
+            "main": "projects/ngx-mistakes-tester/src/main.ts",
+            "polyfills": "projects/ngx-mistakes-tester/src/polyfills.ts",
+            "tsConfig": "projects/ngx-mistakes-tester/tsconfig.app.json",
+            "assets": [
+              "projects/ngx-mistakes-tester/src/favicon.ico",
+              "projects/ngx-mistakes-tester/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-mistakes-tester/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-mistakes-tester/src/environments/environment.ts",
+                  "with": "projects/ngx-mistakes-tester/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-mistakes-tester:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-mistakes-tester:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-mistakes-tester:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-mistakes-tester/src/test.ts",
+            "polyfills": "projects/ngx-mistakes-tester/src/polyfills.ts",
+            "tsConfig": "projects/ngx-mistakes-tester/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-mistakes-tester/karma.conf.js",
+            "styles": [
+              "projects/ngx-mistakes-tester/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/ngx-mistakes-tester/src/favicon.ico",
+              "projects/ngx-mistakes-tester/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-mistakes-tester/tsconfig.app.json",
+              "projects/ngx-mistakes-tester/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-mistakes-tester-e2e": {
+      "root": "projects/ngx-mistakes-tester-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ngx-mistakes-tester-e2e/protractor.conf.js",
+            "devServerTarget": "ngx-mistakes-tester:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-mistakes-tester:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/ngx-mistakes-tester-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-mistakes"
 }
