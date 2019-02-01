@@ -8,18 +8,18 @@
   ngx-mistakes
 </h1>
 
-<h4>
-  A declarative validation errors module for reactive forms based on module by
-  <a href="https://github.com/UltimateAngular/ngx-errors">Ultimate Angular</a>
+<h4 align="center">
+  A declarative validation errors module for reactive forms based on module the by
+  <a href="https://github.com/UltimateAngular/ngx-errors" target="_blank">Ultimate Angular</a>
 </h4>
 
 # Overview
 
 ### What is it?
-The aim is to be backwards compatible with ngx-errors, but solving the issues related to rxjs on Angular 7, since they seem to have abandond the project.
-Just replace the name of the package on your imports and every should keep working like before.
+The aim of this package is to be backwards compatible with ngx-errors, but solving the issues related to rxjs on Angular 7, since they seem to have abandoned the project.
+Just replace the name of the package in your imports and every should working like before.
 
-In the following days we will be adding some extra features to address some issue working with form group arrays.
+In the following days we will be adding some extra features to address some issues working with form group arrays.
 
 ### Installation
 
@@ -39,7 +39,7 @@ import { NgxErrorsModule } from 'ngx-mistakes';
 
 # Documentation
 
-Please, check the original documentation at: <a href="https://github.com/UltimateAngular/ngx-errors">Ultimate Angular</a>
+Please, check the original documentation at: <a href="https://github.com/UltimateAngular/ngx-errors" target="_blank">Ultimate Angular</a>
 
 ## License
 
