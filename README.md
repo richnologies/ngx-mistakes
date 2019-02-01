@@ -1,27 +1,46 @@
 # NgxMistakes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+[![version](https://img.shields.io/npm/v/ngx-mistakes.svg)](https://www.npmjs.com/package/ngx-mistakes)
+[![license](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/ngx-mistakes)
 
-## Development server
+<h1 align="center">
+  <img width="40" valign="bottom" src="https://angular.io/assets/images/logos/angular/angular.svg">
+  ngx-mistakes
+</h1>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<h4>
+  A declarative validation errors module for reactive forms based on module by
+  <a href="https://github.com/UltimateAngular/ngx-errors">Ultimate Angular</a>
+</h4>
 
-## Code scaffolding
+# Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### What is it?
+The aim is to be backwards compatible with ngx-errors, but solving the issues related to rxjs on Angular 7, since they seem to have abandond the project.
+Just replace the name of the package on your imports and every should keep working like before.
 
-## Build
+In the following days we will be adding some extra features to address some issue working with form group arrays.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Installation
 
-## Running unit tests
+```bash
+npm i ngx-mistakes
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Setup
 
-## Running end-to-end tests
+Just add ngx-mistakes to your module:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```js
+import { NgxErrorsModule } from 'ngx-mistakes';
 
-## Further help
+@NgModule({ imports: [ NgxErrorsModule ] })
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Documentation
+
+Please, check the original documentation at: <a href="https://github.com/UltimateAngular/ngx-errors">Ultimate Angular</a>
+
+## License
+
+MIT © [Ricardo Sánchez Gregorio](mailto:me@richnologies.io)
