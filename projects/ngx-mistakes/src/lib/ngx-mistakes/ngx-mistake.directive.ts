@@ -22,7 +22,7 @@ import { NgxMistakesDirective } from './ngx-mistakes.directive';
   selector: '[ngxError]'
 })
 export class NgxMistakeDirective implements OnInit, OnDestroy, DoCheck {
-  @Input() set ngxMistake(value: ErrorOptions) {
+  @Input() set ngxError(value: ErrorOptions) {
     this.errorNames = toArray(value);
   }
 

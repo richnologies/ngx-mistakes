@@ -13,6 +13,7 @@ import { ErrorDetails, ErrorOptions } from '../interfaces/errors.interface';
 import { toArray } from '../utils/to-array';
 
 @Directive({
+  // tslint:disable-next-line: directive-selector
   selector: '[ngxErrors]',
   exportAs: 'ngxErrors'
 })
@@ -87,7 +88,7 @@ export class NgxMistakesDirective
   }
 
   ngOnChanges() {
-    if (this.arr && this.idx) {
+    if (this.arr && !isNaN(this.idx)) {
       const arr = this.form.control.get(this.arr) as FormArray;
       if (arr) {
         const control = arr.at(this.idx);
