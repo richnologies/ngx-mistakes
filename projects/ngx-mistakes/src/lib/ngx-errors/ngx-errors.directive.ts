@@ -13,6 +13,7 @@ import { ErrorDetails, ErrorOptions } from '../interfaces/errors.interface';
 import { toArray } from '../utils/to-array';
 
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: '[ngxErrors]',
   exportAs: 'ngxErrors'
 })

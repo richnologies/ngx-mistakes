@@ -5,7 +5,7 @@ import {
   OnDestroy,
   AfterViewInit
 } from '@angular/core';
-import { FormGroupDirective, AbstractControl } from '@angular/forms';
+import { FormGroupDirective, AbstractControl, FormArray } from '@angular/forms';
 
 import { BehaviorSubject } from 'rxjs';
 
@@ -13,12 +13,14 @@ import { ErrorDetails, ErrorOptions } from '../interfaces/errors.interface';
 import { toArray } from '../utils/to-array';
 
 @Directive({
-  selector: '[ngxMistakes]',
+  selector: '[ngxErrors]',
   exportAs: 'ngxErrors'
 })
 export class NgxMistakesDirective
   implements OnChanges, OnDestroy, AfterViewInit {
-  @Input('ngxMistakes') controlName: string;
+  @Input('ngxErrors') controlName: string;
+  @Input() arr: string;
+  @Input() idx: number;
 
   subject = new BehaviorSubject<ErrorDetails>(null);
   control: AbstractControl;
@@ -85,7 +87,17 @@ export class NgxMistakesDirective
   }
 
   ngOnChanges() {
-    this.control = this.form.control.get(this.controlName);
+    if (this.arr && this.idx) {
+      const arr = this.form.control.get(this.arr) as FormArray;
+      if (arr) {
+        const control = arr.at(this.idx);
+        if (control) {
+          this.control = control.get(this.controlName);
+        }
+      }
+    } else {
+      this.control = this.form.control.get(this.controlName);
+    }
   }
 
   ngAfterViewInit() {

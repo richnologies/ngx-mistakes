@@ -18,7 +18,8 @@ import { toArray } from '../utils/to-array';
 import { NgxMistakesDirective } from './ngx-mistakes.directive';
 
 @Directive({
-  selector: '[ngxMistake]'
+  // tslint:disable-next-line:directive-selector
+  selector: '[ngxError]'
 })
 export class NgxMistakeDirective implements OnInit, OnDestroy, DoCheck {
   @Input() set ngxMistake(value: ErrorOptions) {

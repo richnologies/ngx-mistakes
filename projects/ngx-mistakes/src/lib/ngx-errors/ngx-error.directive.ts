@@ -18,6 +18,7 @@ import { toArray } from '../utils/to-array';
 import { NgxErrorsDirective } from './ngx-errors.directive';
 
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: '[ngxError]'
 })
 export class NgxErrorDirective implements OnInit, OnDestroy, DoCheck {
