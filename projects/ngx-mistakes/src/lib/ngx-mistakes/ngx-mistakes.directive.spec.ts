@@ -11,11 +11,6 @@ import { NgxMistakeDirective } from './ngx-mistake.directive';
 
 import { By } from '@angular/platform-browser';
 
-TestBed.initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
-);
-
 @Component({
   template: `
     <form [formGroup]="form">

@@ -49,7 +49,7 @@ export class NgxMistakeDirective implements OnInit, OnDestroy, DoCheck {
     this.states = this._states.asObservable().pipe(distinctUntilChanged());
 
     const errors = this.ngxMistakes.subject.pipe(
-      filter(Boolean),
+      filter(obj => !!obj),
       // tslint:disable-next-line:no-bitwise
       filter(obj => !!~this.errorNames.indexOf(obj.errorName))
     );
@@ -59,7 +59,7 @@ export class NgxMistakeDirective implements OnInit, OnDestroy, DoCheck {
       map(states => this.rules.every(rule => !!~states.indexOf(rule)))
     );
 
-    this.subscription = combineLatest(states, errors).subscribe(
+    this.subscription = combineLatest([states, errors]).subscribe(
       // tslint:disable-next-line:no-shadowed-variable
       ([states, errors]) => {
         this.hidden = !(states && errors.control.hasError(errors.errorName));
