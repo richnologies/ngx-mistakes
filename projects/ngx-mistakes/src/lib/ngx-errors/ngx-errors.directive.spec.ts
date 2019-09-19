@@ -11,11 +11,6 @@ import { NgxErrorDirective } from './ngx-error.directive';
 
 import { By } from '@angular/platform-browser';
 
-TestBed.initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
-);
-
 @Component({
   template: `
     <form [formGroup]="form">

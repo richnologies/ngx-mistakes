@@ -16,7 +16,7 @@
 # Overview
 
 ### What is it?
-The aim of this package is to be backwards compatible with ngx-errors, but solving the issues related to rxjs on Angular 7, since they seem to have abandoned the project.
+The aim of this package is to be backwards compatible with ngx-errors, but solving the issues related to rxjs on Angular 8, since they seem to have abandoned the project.
 Just replace the name of the package in your imports and every should working like before.
 
 ### Installation
